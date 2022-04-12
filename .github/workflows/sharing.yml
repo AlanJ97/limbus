@@ -5,18 +5,18 @@ on: push
 jobs:
 
   job1:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
 
     - run: mkdir -p dist
 
-    - run: echo hello > world.txt
+    - run: echo hello-world > dist/world.txt
 
     - uses: actions/upload-artifact@master
       with:
         name: hello-world-artifact
-        path: world.txt
+        path: dist/world.txt
 
   job2:
     runs-on: ubuntu-latest
@@ -27,6 +27,6 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: hello-world-artifact
-        path: world.txt
+        path: dist/world.txt
 
-    - run: less world.txt
+    - run: less dist/world.txt
