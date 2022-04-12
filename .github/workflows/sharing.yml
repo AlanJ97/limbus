@@ -1,0 +1,37 @@
+name: Build and Test [Python 3.6, 3.7, 3.8]
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+  job1:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - run: mkdir -p dist
+
+    - run: echo hello > dist/world.txt
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: hello-world-artifact
+        path: dist/world.txt
+
+  job2:
+    runs-on: macos-latest
+
+    steps:
+    - run: mkdir -p dist
+
+    - uses: actions/download-artifact@master
+      with:
+        name: hello-world-artifact
+        path: dist/world.txt
+
+    - run: cat dist/world.txt
