@@ -29,4 +29,4 @@ jobs:
         name: hello-world-artifact
         path: world.txt
 
-    - run: cat world.txt
+    - run: less world.txt
