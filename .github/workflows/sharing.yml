@@ -11,7 +11,7 @@ jobs:
 
     - run: mkdir -p dist
 
-    - run: echo hello > dist/world.txt
+    - run: echo hello > world.txt
 
     - uses: actions/upload-artifact@master
       with:
@@ -27,6 +27,6 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: hello-world-artifact
-        path: dist/world.txt
+        path: world.txt
 
     - run: cat dist/world.txt
