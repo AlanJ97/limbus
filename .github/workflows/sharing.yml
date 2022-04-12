@@ -29,4 +29,4 @@ jobs:
         name: hello-world-artifact
         path: dist/world.txt
 
-    - run: cp dist/world.txt dist/world2.txt
+    - run: cp -R dist/world.txt dist/world2.txt
