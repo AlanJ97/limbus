@@ -20,7 +20,7 @@ jobs:
 
   job2:
     runs-on: macos-latest
-
+    needs: job1
     steps:
     - run: mkdir -p dist
 
